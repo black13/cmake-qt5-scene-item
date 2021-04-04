@@ -21,7 +21,7 @@ find_package(Qt5 COMPONENTS
     REQUIRED QUIET
 )
 
-add_executable(sceneitem main.cpp)
+add_executable(sceneitem main.cpp scene.h scene.cpp item.h item.cpp)
 
 target_include_directories(sceneitem PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
