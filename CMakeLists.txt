@@ -1,4 +1,4 @@
-#cmake.exe  -G "Visual Studio 14 2015" -D CMAKE_PREFIX_sceneitem="C:\Qt\Qt-5.15.2\lib\cmake" ..
+#cmake.exe  -G "Visual Studio 14 2015" -D CMAKE_PREFIX_ITEM="C:\Qt\Qt-5.15.2\lib\cmake" ..
 cmake_minimum_required(VERSION 3.18)
 project(sceneitem VERSION 0.0.0 LANGUAGES CXX)
 
@@ -21,7 +21,7 @@ find_package(Qt5 COMPONENTS
     REQUIRED QUIET
 )
 
-add_executable(sceneitem main.cpp scene.h scene.cpp item.h item.cpp)
+add_executable(sceneitem main.cpp view.h view.cpp rect.h scene.h scene.cpp item.h item.cpp)
 
 target_include_directories(sceneitem PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 

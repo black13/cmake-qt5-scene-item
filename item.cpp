@@ -1,10 +1,13 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
+#include <QDebug>
 #include "item.h"
+#include "debug.h"
 
 Item::Item(const QColor &color, int x, int y)
 {
+	trace_msg("");
 	this->x = x;
 	this->y = y;
 	this->color = color;
@@ -21,6 +24,7 @@ QRectF Item::boundingRect() const
 
 QPainterPath Item::shape() const
 {
+	trace_msg("");
 	QPainterPath path;
 	path.addRect(14, 14, 82, 42);
 	return path;
@@ -29,7 +33,7 @@ QPainterPath Item::shape() const
 void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	Q_UNUSED(widget);
-
+	trace_msg("");
 	QColor fillColor = (option->state & QStyle::State_Selected) ? color.darker(150) : color;
 	if (option->state & QStyle::State_MouseOver)
 		fillColor = fillColor.lighter(125);
@@ -37,7 +41,7 @@ void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	const qreal lod = option->levelOfDetailFromTransform(painter->worldTransform());
 	if (lod < 0.2) {
 		if (lod < 0.125) {
-			painter->fillRect(QRectF(0, 0, 110, 70), fillColor);
+			painter->fillRect(QRectF(100, 0, 110, 70), fillColor);
 			return;
 		}
 
@@ -122,12 +126,14 @@ void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 void Item::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+	trace_msg("");
 	QGraphicsItem::mousePressEvent(event);
 	update();
 }
 
 void Item::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
+	trace_msg("");
 	if (event->modifiers() & Qt::ShiftModifier) {
 		stuff << event->pos();
 		update();
@@ -138,6 +144,7 @@ void Item::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void Item::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+	trace_msg("");
 	QGraphicsItem::mouseReleaseEvent(event);
 	update();
 }

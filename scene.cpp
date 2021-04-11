@@ -2,6 +2,8 @@
 #include "item.h"
 
 #include <QGraphicsSceneMouseEvent>
+#include <QDebug>
+#include "debug.h"
 
 Scene::Scene(QObject *parent)
 	: QGraphicsScene(parent)

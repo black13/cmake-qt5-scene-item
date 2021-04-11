@@ -4,9 +4,12 @@
 
 #include <QGraphicsScene>
 #include <QMultiMap>
+#include <QSet>
+#include <QHash>
 
 class Item;
-
+class QGraphicsRectItem;
+//class Line;
 class Scene : public QGraphicsScene
 {
 	Q_OBJECT
@@ -24,6 +27,7 @@ protected:
 private:
 	QGraphicsItem *movingItem = nullptr;
 	QPointF oldPos;
+	QHash<QGraphicsRectItem*, QSet<QGraphicsRectItem*>> m_graph;
 };
 
 #endif // NODESCENE_H
