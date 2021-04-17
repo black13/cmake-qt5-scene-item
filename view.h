@@ -15,10 +15,13 @@ public:
     void itemMoved();
 
 public slots:
-   // void shuffle();
+   void addAction();
+
 
 
 protected:
+	void contextMenuEvent(QContextMenuEvent *event);
+
 
 
     void scaleView(qreal scaleFactor);
