@@ -1,4 +1,4 @@
-#cmake.exe  -G "Visual Studio 14 2015" -D CMAKE_PREFIX_ITEM="C:\Qt\Qt-5.15.2\lib\cmake" ..
+#cmake.exe  -G "Visual Studio 14 2015" -D CMAKE_PREFIX_PATH="C:\Qt\Qt-5.15.2\lib\cmake" ..
 cmake_minimum_required(VERSION 3.18)
 project(sceneitem VERSION 0.0.0 LANGUAGES CXX)
 
